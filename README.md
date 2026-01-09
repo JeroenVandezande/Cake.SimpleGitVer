@@ -1,9 +1,9 @@
-# Cake.SimpleGitVersion
+# Cake.SimpleGitVer
 
-[<img src="./Cake.SimpleGitVersion/cakebadge.svg" width="100">](https://cakebuild.net/)
+[<img src="./Cake.SimpleGitVer/cakebadge.svg" width="100">](https://cakebuild.net/)
 
-[![Version](https://img.shields.io/nuget/vpre/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVersion)
-[![NuGet download count](https://img.shields.io/nuget/dt/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVersion)
+[![Version](https://img.shields.io/nuget/vpre/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
+[![NuGet download count](https://img.shields.io/nuget/dt/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Cake addin to derive build versions from `git describe` and a simple, numeric tag convention.
@@ -39,7 +39,7 @@ The addin returns a rich result including `BaseBuild`, `CommitsAhead`, `Sha`, an
 ### Include an Add-In directive
 
 ```csharp
-#addin "nuget:?package=Cake.SimpleGitVersion&loaddependencies=true"
+#addin "nuget:?package=Cake.SimpleGitVer&loaddependencies=true"
 ```
 
 ### Example
@@ -60,7 +60,7 @@ Task("Print-Version")
         AutoIncrementBuildNumber = true
     };
 
-    var r = context.GetSimpleGitVer(settings);
+    var r = GetSimpleGitVer(settings);
 
     Information("RawDescribe: {0}", r.RawDescribe);
     Information("BaseVersion: {0}", r.BaseVersion);

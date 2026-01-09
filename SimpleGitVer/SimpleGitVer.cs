@@ -1,11 +1,18 @@
 ﻿using System.Text.RegularExpressions;
 using Cake.Common;
 using Cake.Core;
+using Cake.Core.Annotations;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 
 namespace Cake.SimpleGitVer;
 
+/// <summary>
+/// Provides Cake aliases for retrieving semantic versioning information
+/// from a Git repository using the `git describe` command with a specified
+/// tag prefix and optional auto-increment build configuration.
+/// </summary>
+[CakeAliasCategory("SimpleGitVer")]
 public static class CakeSimpleGitVer
 {
     /// <summary>
@@ -16,20 +23,25 @@ public static class CakeSimpleGitVer
     /// <param name="context">The Cake context used to execute the Git process and log messages.</param>
     /// <param name="settings">Settings that configure the Git command execution, including tag prefix,
     /// auto-increment behavior, and the Git executable path.</param>
-    /// <returns>A <see cref="SimpleGitResult"/> containing parsed version information from the Git repository.</returns>
+    /// <returns>A <see cref="SimpleGitVerResult"/> containing parsed version information from the Git repository.</returns>
     /// <exception cref="CakeException">
     /// Thrown when the Git command execution fails, produces invalid output, or the Git tag format does not match the expected pattern.
     /// </exception>
-    public static SimpleGitResult GetSimpleGitVer(this ICakeContext context, SimpleGitVerSettings settings)
+    [CakeMethodAlias]
+    public static SimpleGitVerResult GetSimpleGitVer(this ICakeContext context, SimpleGitVerSettings settings)
     {
         var procSettings = new ProcessSettings();
         procSettings.RedirectStandardOutput = true;
         string returnedStringFromGit = null;
         procSettings.RedirectedStandardOutputHandler = s =>
         {
+            if (String.IsNullOrEmpty(s))
+            {
+                return s;
+            }
             if (returnedStringFromGit != null)
             {
-                context.Log.Write(Verbosity.Normal, LogLevel.Error, "Git returned invalid data");
+                context.Log.Write(Verbosity.Normal, LogLevel.Error, "Git returned invalid data: {0}   {1}", returnedStringFromGit, s);
                 throw new CakeException("git describe failed");
             }
             returnedStringFromGit = s;
@@ -76,6 +88,6 @@ public static class CakeSimpleGitVer
         string sha = m.Groups["sha"].Success ? m.Groups["sha"].Value : "";
         bool dirty = m.Groups["dirty"].Success;
         var finalBuild = settings.AutoIncrementBuildNumber ? (build + commitsAhead) : build;
-        return new SimpleGitResult(major, minor, patch, build, finalBuild, commitsAhead, sha, dirty, returnedStringFromGit, settings.TagPrefix);
+        return new SimpleGitVerResult(major, minor, patch, build, finalBuild, commitsAhead, sha, dirty, returnedStringFromGit, settings.TagPrefix);
     }
 }
