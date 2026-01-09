@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0;net10.0;</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>Cake.SimpleGitVer</AssemblyName>
+        <RootNamespace>Cake.SimpleGitVer</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Cake.SimpleGitVer</PackageId>
+        <Authors>Jeroen Vandezande</Authors>
+        <Copyright>Copyright © Jeroen Vandezande 2026</Copyright>
+        <Description>a plug-in for Cake Build that uses Git describe to get a version from tags.</Description>
+        <PackageProjectUrl>https://cakebuild.net/extensions/Cake.SimpleGitVer/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/cake-contrib/Cake.SimpleGitVer</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>cake-addin Cake Script Build Git Version</PackageTags>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSymbols>True</IncludeSymbols>
+        <Title>Cake.SimpleGitVer</Title>
+        <PackageIcon>cake-contrib-medium.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Cake.Common" Version="4.0.0" />
+      <PackageReference Include="Cake.Core" Version="4.0.0" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="cake-contrib-medium.png">
+            <Pack>True</Pack>
+            <PackagePath/>
+        </None>
+        <None Include="../README.md">
+            <Pack>True</Pack>
+            <PackagePath/>
+        </None>
+    </ItemGroup>
+
+</Project>
