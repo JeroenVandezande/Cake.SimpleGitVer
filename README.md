@@ -1,6 +1,6 @@
 # Cake.SimpleGitVer
 
-[<img src="./SimpleGitVer/cakebadge.svg" width="100">](https://cakebuild.net/)
+[<img src="https://raw.githubusercontent.com/cake-build/graphics/refs/heads/master/svg/cake.svg" width="100">](https://cakebuild.net/)
 
 [![Version](https://img.shields.io/nuget/vpre/Cake.SimpleGitVer.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
 [![NuGet download count](https://img.shields.io/nuget/dt/Cake.SimpleGitVer.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
