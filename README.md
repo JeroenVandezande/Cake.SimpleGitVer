@@ -1,9 +1,9 @@
 # Cake.SimpleGitVer
 
-[<img src="./Cake.SimpleGitVer/cakebadge.svg" width="100">](https://cakebuild.net/)
+[<img src="./SimpleGitVer/cakebadge.svg" width="100">](https://cakebuild.net/)
 
-[![Version](https://img.shields.io/nuget/vpre/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
-[![NuGet download count](https://img.shields.io/nuget/dt/Cake.SimpleGitVersion.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
+[![Version](https://img.shields.io/nuget/vpre/Cake.SimpleGitVer.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
+[![NuGet download count](https://img.shields.io/nuget/dt/Cake.SimpleGitVer.svg)](https://www.nuget.org/packages/Cake.SimpleGitVer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Cake addin to derive build versions from `git describe` and a simple, numeric tag convention.
