@@ -30,6 +30,7 @@ public static class CakeSimpleGitVer
     [CakeMethodAlias]
     public static SimpleGitVerResult GetSimpleGitVer(this ICakeContext context, SimpleGitVerSettings settings)
     {
+        context.Log.Write(Verbosity.Verbose, LogLevel.Information, $"Tag prefix: {settings.TagPrefix}");
         var procSettings = new ProcessSettings();
         procSettings.RedirectStandardOutput = true;
         string returnedStringFromGit = null;
@@ -65,6 +66,8 @@ public static class CakeSimpleGitVer
             context.Log.Write(Verbosity.Normal, LogLevel.Error, "Git returned invalid data");
             throw new CakeException("git describe failed");
         }
+        
+        context.Log.Write(Verbosity.Verbose, LogLevel.Information, $"Tag received from git: {returnedStringFromGit}");
 
         var rx = new Regex(
             @$"^{settings.TagPrefix}" +
