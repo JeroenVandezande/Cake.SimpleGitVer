@@ -14,14 +14,15 @@ public sealed record SimpleGitVerResult(
     int Major,
     int Minor,
     int Patch,
-    int BaseBuild,
+    int Build,
     int FinalBuild,
+    int FinalPatch,
     int CommitsAhead,
     string Sha,
     bool IsDirty,
     string RawDescribe,
     string TagPrefix)
 {
-    public Version BaseVersion => new(Major, Minor, Patch, BaseBuild);
-    public Version Version => new(Major, Minor, Patch, FinalBuild);
+    public Version BaseVersion => new(Major, Minor, Build, Patch);
+    public Version Version => new(Major, Minor, FinalBuild, FinalPatch);
 }

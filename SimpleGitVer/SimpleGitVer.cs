@@ -71,7 +71,7 @@ public static class CakeSimpleGitVer
 
         var rx = new Regex(
             @$"^{settings.TagPrefix}" +
-            @"(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)\.(?<build>\d+)" +
+            @"(?<major>\d+)\.(?<minor>\d+)\.(?<build>\d+)\.(?<patch>\d+)" +
             @"(?:-(?<ahead>\d+)-g(?<sha>[0-9a-f]+))?" +
             @"(?<dirty>-dirty)?$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -85,12 +85,13 @@ public static class CakeSimpleGitVer
         
         var major = int.Parse(m.Groups["major"].Value);
         var minor = int.Parse(m.Groups["minor"].Value);
-        var patch = int.Parse(m.Groups["patch"].Value);
         var build = int.Parse(m.Groups["build"].Value);
+        var patch = int.Parse(m.Groups["patch"].Value);
         int commitsAhead = m.Groups["ahead"].Success ? int.Parse(m.Groups["ahead"].Value) : 0;
         string sha = m.Groups["sha"].Success ? m.Groups["sha"].Value : "";
         bool dirty = m.Groups["dirty"].Success;
         var finalBuild = settings.AutoIncrementBuildNumber ? (build + commitsAhead) : build;
-        return new SimpleGitVerResult(major, minor, patch, build, finalBuild, commitsAhead, sha, dirty, returnedStringFromGit, settings.TagPrefix);
+        var finalPatch = settings.AutoIncrementPatchNumber ? (patch + commitsAhead) : patch;
+        return new SimpleGitVerResult(major, minor, patch, build, finalBuild, finalPatch, commitsAhead, sha, dirty, returnedStringFromGit, settings.TagPrefix);
     }
 }

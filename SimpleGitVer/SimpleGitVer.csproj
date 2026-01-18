@@ -4,7 +4,7 @@
         <TargetFrameworks>net8.0;net9.0;net10.0;</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>1.2.2</Version>
+        <Version>1.3.0</Version>
         <AssemblyName>Cake.SimpleGitVer</AssemblyName>
         <RootNamespace>Cake.SimpleGitVer</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -13,10 +13,10 @@
         <Copyright>Copyright © Jeroen Vandezande 2026</Copyright>
         <Description>a plug-in for Cake Build that uses Git describe to get a version from tags.</Description>
         <PackageProjectUrl>https://cakebuild.net/extensions/Cake.SimpleGitVer/</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/cake-contrib/Cake.SimpleGitVer</RepositoryUrl>
+        <RepositoryUrl>https://github.com/JeroenVandezande/Cake.SimpleGitVer</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>cake-addin Cake Script Build Git Version</PackageTags>
-        <PackageReleaseNotes>Added more debug info</PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed version naming, fixed repo url</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSymbols>True</IncludeSymbols>

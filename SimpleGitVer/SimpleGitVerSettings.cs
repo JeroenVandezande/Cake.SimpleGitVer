@@ -21,7 +21,15 @@ public class SimpleGitVerSettings: ToolSettings
     /// to true enables automatic incrementation of the build number, while setting it
     /// to false retains the original build number from the tag.
     /// </summary>
-    public bool AutoIncrementBuildNumber { get; set; } = true;
+    public bool AutoIncrementBuildNumber { get; set; } = false;
+
+    /// <summary>
+    /// Determines whether the Patch component of the semantic version number
+    /// should be automatically incremented to generate a unique version for each build.
+    /// When enabled, SimpleGitVer will ensure the Patch number is updated
+    /// incrementally based on the versioning rules.
+    /// </summary>
+    public bool AutoIncrementPatchNumber { get; set; } = true;
 
     /// <summary>
     /// Specifies the path to the Git executable that will be used by the SimpleGitVer tool.
